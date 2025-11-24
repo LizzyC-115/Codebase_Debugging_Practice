@@ -25,8 +25,8 @@ from app.schemas.project import (
     ProjectUpdate,
     ProjectListResponse
 )
-from app.api.deps import get_current_user, get_current_tenant
-from app.core.permissions import require_member, can_delete_project, can_modify_project
+from app.api.deps import get_current_user, get_current_tenant, require_member
+from app.core.permissions import can_delete_project, can_modify_project
 from app.core.exceptions import ProjectNotFoundError
 from app.utils.logging import get_logger
 

@@ -14,7 +14,7 @@ class ResourceBase(BaseModel):
     resource_type: str = Field(..., min_length=1, max_length=50)
     content: Optional[str] = None
     file_url: Optional[str] = None
-    metadata: Optional[Dict[str, Any]] = None
+    resource_metadata: Optional[Dict[str, Any]] = None
 
 
 class ResourceCreate(ResourceBase):
@@ -27,7 +27,7 @@ class ResourceUpdate(BaseModel):
     name: Optional[str] = Field(None, min_length=1, max_length=255)
     content: Optional[str] = None
     file_url: Optional[str] = None
-    metadata: Optional[Dict[str, Any]] = None
+    resource_metadata: Optional[Dict[str, Any]] = None
 
 
 class ResourceResponse(ResourceBase):

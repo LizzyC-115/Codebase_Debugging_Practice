@@ -52,8 +52,10 @@ Base = declarative_base()
 def set_sqlite_pragma(dbapi_connection, connection_record):
     """Set connection-level configuration on new connections."""
     cursor = dbapi_connection.cursor()
-    # Set timezone to UTC for consistency across all tenants
-    cursor.execute("SET TIME ZONE 'UTC'")
+    # Set timezone to UTC for consistency across all tenants (PostgreSQL only)
+    # SQLite doesn't support SET TIME ZONE, so we skip it
+    if settings.DATABASE_URL.startswith("postgresql"):
+        cursor.execute("SET TIME ZONE 'UTC'")
     cursor.close()
     logger.debug("New database connection established")
 

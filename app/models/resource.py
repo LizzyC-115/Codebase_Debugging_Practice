@@ -56,7 +56,7 @@ class Resource(Base):
     # Metadata stored as JSON
     # NOTE: Using JSON column is convenient but makes querying harder
     # If you need to query this data frequently, normalize it to proper columns
-    metadata = Column(JSON, nullable=True, default=dict)
+    resource_metadata = Column(JSON, nullable=True, default=dict)
 
     # Versioning info
     # FUTURE: Implement proper versioning with a separate resource_versions table
